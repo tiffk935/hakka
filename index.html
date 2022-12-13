@@ -4,11 +4,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <script src="./js/jquery-3.6.0.min.js"> </script>
+  <script src="./js/bootstrap.bundle.js"> </script>
+  <title>客家人口數據大解密</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css?7">
+  <link rel="stylesheet" href="./css/index.css">
   <style>
     .canvas-wrapper60 {
       position: relative; 
@@ -32,8 +36,85 @@
   </style>
 </head>
 <body>
+  <!-- Header Start-->
+  <nav class="header">
+    <div class="header-d d-none d-lg-block">
+      <div class="container">
+        <div class="d-flex justify-between w-100 align-items-center"><a class="logo" href="./"><img src="img/logo.png" alt=""></a>
+          <ul class="headerList mr-auto">
+            <li> <a href="#quiz-app" data-section="index">問答挑戰</a></li>
+            <li> <a href="#map" data-section="charts">互動地圖</a></li>
+            <li> <a href="#anchor-number" data-section="charts">數字看客家</a></li>
+            <li> <a href="#anchor-news" data-section="charts">新聞最速報</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="header-m d-lg-none"><a class="logo" href="./index.html"><img src="img/logo-m.png" alt=""></a>
+      <div class="ham">
+        <div class="ham-nav ham-top"></div>
+        <div class="ham-nav ham-mid"></div>
+        <div class="ham-nav ham-bot"></div>
+      </div>
+    </div>
+  </nav>
+  <div class="ham-content d-lg-none">
+    <div class="d-flex justify-content-between"><img class="logo" src="img/logo.png" alt="">
+      <div class="ham">
+        <div class="ham-nav ham-top"></div>
+        <div class="ham-nav ham-bot"></div>
+      </div>
+    </div>
+    <ul class="hamList">
+      <li> <a href="#quiz-app" data-section="index">問答挑戰</a></li>
+      <li> <a href="#map" data-section="charts">互動地圖</a></li>
+      <li> <a href="#anchor-number" data-section="charts">數字看客家</a></li>
+      <li> <a href="#anchor-news" data-section="charts">新聞最速報</a></li>
+    </ul>
+  </div>
+  <!-- Header End-->
 
-  <div id="map_chart">
+  <div class="main" id="map_chart">
+    <!-- Section KV-->
+    <section class="section-kv section-index-sections"><img class="d-none d-lg-block w-100" src="img/kv/kv-d.png" alt=""/></section>
+    
+    <!-- Section Quiz-->
+    <section class="section-quiz section-index-sections" id="quiz-app">
+      <div class="square" v-if="questions">
+        <div class="quiz-wrap" v-if="!hasAnswerDone"><img class="quiz-title" src="img/quiz/quiz-title.png" alt="客家人口快問快答"/>
+          <div class="quiz-question"><img class="question-img" :src="`img/quiz/q${quizIdx+1}.png`" alt="1"/>
+            <p class="quiz-txt">{{questions[quizIdx]?.text}}</p>
+          </div>
+          <ul class="quiz-options">
+            <li class="quiz-option" @click="selectOption(0)" :class="{'selected-option': selectedAnswer === 0}">{{questions[quizIdx]?.options[0]}}</li>
+            <li class="quiz-option" @click="selectOption(1)" :class="{'selected-option': selectedAnswer === 1}">{{questions[quizIdx]?.options[1]}}</li>
+            <li class="quiz-option" @click="selectOption(2)" :class="{'selected-option': selectedAnswer === 2}">{{questions[quizIdx]?.options[2]}}</li>
+            <li class="quiz-option" @click="selectOption(3)" :class="{'selected-option': selectedAnswer === 3}">{{questions[quizIdx]?.options[3]}}</li>
+          </ul>
+          <div class="confirm-block">
+            <div class="dialog-wrap"><img class="dialog dialog-correct" src="img/quiz/dialog-correct.png" alt=""/><img class="dialog dialog-wrong" src="img/quiz/dialog-wrong.png" alt=""/>
+              <div class="btn-confirm" @click="answer" :class="{ 'disabled': selectedAnswer === -1 }"><span>{{ nextStep }}</span><img class="arr" src="img/quiz/arr-r.png" alt=""/></div>
+            </div>
+            <div class="answer-block"><span class="answer-txt" v-for="(des,idx) in explanations">{{des}}</span>
+              <div class="answer-line d-none d-lg-block"></div>
+            </div>
+          </div>
+        </div>
+        <div class="result-wrap" v-else="v-else"><img class="result-title" src="img/quiz/result-title.png" alt="問答總結"/>
+          <div class="txt-wrap">
+            <p class="result-intro">客家人口快問快答你獲得幾分呢？是否有許多答案與我們想的不一樣？看完解答後可以與朋友分享自己得分，並且可以繼續往下，透過《客新聞》製作的地圖來瞭解你所不知道的台灣客家人口數據現況！</p>
+            <div class="score-block"><img src="img/quiz/result-img.png" alt=""/>
+              <div class="score"><span class="num">{{score}}</span><span class="unit">分</span></div>
+            </div>
+          </div>
+          <div class="result-txt">{{resultTxt}}</div>
+        </div>
+      </div>
+      <div class="result-redirect" v-if="hasAnswerDone"><img src="img/quiz/result-arr.png" alt=""/>
+        <div class="btn-go-map">客家人口互動地圖</div>
+      </div>
+    </section>
+
     <section id="map">
       <div class="container">
         <div class="big-title">
@@ -297,24 +378,85 @@
       </div>
     </section>
 
-    <section id="news">
-      <div class="container">
-
+    <!-- Section News-->
+    <section class="section-news section-charts" id="anchor-news">
+      <div class="news-boxes container">
+        <div class="row">
+          <div class="col-12 col-lg-4"><a class="news-box" href="#" target="_blank">
+              <div class="img-box" style="background-image:url(img/news/1.jpg)"></div>
+              <div class="title">平名戰士／到底是神是鬼？義民信仰５大ＱＡ報你知！</div>
+              <div class="title-line"></div>
+              <div class="content-txt">適逢農曆7月20日義民節，《客新聞》梳理國立聯合大學客家研究學院林本炫院長訪談內容，並歸納為「５大常見義民信仰ＱＡ」，希望各界能瞭解何為義民精神，而非只將義民信仰視為單純的傳統祭祀活動。</div></a></div>
+          <div class="col-12 col-lg-4"><a class="news-box" href="#" target="_blank">
+              <div class="img-box" style="background-image:url(img/news/2.jpg)"></div>
+              <div class="title">平民戰士／236年後的今天　「義民精神」帶給我們什麼意義？</div>
+              <div class="title-line"></div>
+              <div class="content-txt">這個源於1786年的故事，在236年後的今天能帶給我們的意義是什麼？《客新聞》特別訪問客籍學者，探究義民信仰背後「義民精神」的意義。談到何謂義民精神，學者們皆異口同聲表示，客家人敬拜的就是義民爺保鄉衛土精神！這也正是當今21世紀生活在自由民主台灣的我們必須反思的重要精神。</div></a></div>
+          <div class="col-12 col-lg-4"><a class="news-box" href="#" target="_blank">
+              <div class="img-box" style="background-image:url(img/news/3.jpg)"></div>
+              <div class="title">圖輯／234年來最盛大義民祭開幕！推3砲臺炸響新竹蒼穹</div>
+              <div class="title-line"></div>
+              <div class="content-txt">距今236年前，一群桃竹苗地區、不分族群的無名英雄犧牲性命保衛家園，他們的精神受到後代景仰，《客新聞》今年以「平民戰士」專題，告訴大家這事件對於21世紀台灣的意義。</div></a></div>
+          <div class="col-12 col-lg-4"><a class="news-box" href="#" target="_blank">
+              <div class="img-box" style="background-image:url(img/news/4.jpg)"></div>
+              <div class="title">平名戰士／到底是神是鬼？義民信仰５大ＱＡ報你知！</div>
+              <div class="title-line"></div>
+              <div class="content-txt">適逢農曆7月20日義民節，《客新聞》梳理國立聯合大學客家研究學院林本炫院長訪談內容，並歸納為「５大常見義民信仰ＱＡ」，希望各界能瞭解何為義民精神，而非只將義民信仰視為單純的傳統祭祀活動。</div></a></div>
+          <div class="col-12 col-lg-4"><a class="news-box" href="#" target="_blank">
+              <div class="img-box" style="background-image:url(img/news/5.jpg)"></div>
+              <div class="title">平民戰士／236年後的今天　「義民精神」帶給我們什麼意義？</div>
+              <div class="title-line"></div>
+              <div class="content-txt">這個源於1786年的故事，在236年後的今天能帶給我們的意義是什麼？《客新聞》特別訪問客籍學者，探究義民信仰背後「義民精神」的意義。談到何謂義民精神，學者們皆異口同聲表示，客家人敬拜的就是義民爺保鄉衛土精神！這也正是當今21世紀生活在自由民主台灣的我們必須反思的重要精神。</div></a></div>
+          <div class="col-12 col-lg-4"><a class="news-box" href="#" target="_blank">
+              <div class="img-box" style="background-image:url(img/news/6.jpg)"></div>
+              <div class="title">圖輯／234年來最盛大義民祭開幕！推3砲臺炸響新竹蒼穹</div>
+              <div class="title-line"></div>
+              <div class="content-txt">距今236年前，一群桃竹苗地區、不分族群的無名英雄犧牲性命保衛家園，他們的精神受到後代景仰，《客新聞》今年以「平民戰士」專題，告訴大家這事件對於21世紀台灣的意義。</div></a></div>
+          <div class="col-12 col-lg-4"><a class="news-box" href="#" target="_blank">
+              <div class="img-box" style="background-image:url(img/news/7.jpg)"></div>
+              <div class="title">平名戰士／到底是神是鬼？義民信仰５大ＱＡ報你知！</div>
+              <div class="title-line"></div>
+              <div class="content-txt">適逢農曆7月20日義民節，《客新聞》梳理國立聯合大學客家研究學院林本炫院長訪談內容，並歸納為「５大常見義民信仰ＱＡ」，希望各界能瞭解何為義民精神，而非只將義民信仰視為單純的傳統祭祀活動。</div></a></div>
+          <div class="col-12 col-lg-4"><a class="news-box" href="#" target="_blank">
+              <div class="img-box" style="background-image:url(img/news/8.jpg)"></div>
+              <div class="title">平民戰士／236年後的今天　「義民精神」帶給我們什麼意義？</div>
+              <div class="title-line"></div>
+              <div class="content-txt">這個源於1786年的故事，在236年後的今天能帶給我們的意義是什麼？《客新聞》特別訪問客籍學者，探究義民信仰背後「義民精神」的意義。談到何謂義民精神，學者們皆異口同聲表示，客家人敬拜的就是義民爺保鄉衛土精神！這也正是當今21世紀生活在自由民主台灣的我們必須反思的重要精神。</div></a></div>
+          <div class="col-12 col-lg-4"><a class="news-box" href="#" target="_blank">
+              <div class="img-box" style="background-image:url(img/news/9.jpg)"></div>
+              <div class="title">圖輯／234年來最盛大義民祭開幕！推3砲臺炸響新竹蒼穹</div>
+              <div class="title-line"></div>
+              <div class="content-txt">距今236年前，一群桃竹苗地區、不分族群的無名英雄犧牲性命保衛家園，他們的精神受到後代景仰，《客新聞》今年以「平民戰士」專題，告訴大家這事件對於21世紀台灣的意義。</div></a></div>
+        </div>
       </div>
     </section>
-
-    <footer id="footer">
-      <div class="container">
-        
-      </div>
-    </footer>
   </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row align-items-lg-end justify-content-between">
+        <div class="col-12 col-lg-9">
+          <p>統籌｜莊勝鴻 </p>
+          <p>執行｜李台源、蘇佑昇、宋佩遙、范修語、洪俊傑 </p>
+          <p>數位｜林昌明 </p>
+          <p>視覺｜仨咖多媒體設計工作室 </p>
+          <p>數據來源｜客家委員會「110年全國客家人口暨語言基礎資料調查研究」</p>
+        </div>
+        <div class="col-12 col-lg-3">   <img class="logo" src="img/logo.png" alt="客新聞"></div>
+        <div class="col-12">
+          <div class="footer-line"></div>
+          <p class="txt">本次客委會調查由國立中央大學客家語文暨社會科學學系張翰璧教授帶領研究團隊及典通股份有限公司執行，採用市話調查方式，自2021年3月15日起至11月6日止，成功訪問63,111位受訪者，在信心水準95%下，抽樣誤差在±0.39%之間。並以2020年12月底內政部發布之鄉（鎮、市、區）戶籍統計人口數分布為依據，進行事後分層的加權推估，加權變數包含性別、年齡層、鄉鎮市區等變數，因此調查結果能推估全國人口的情況。 完整報告刊於客家委員會官網政府公開資訊專區。</p>
+        </div>
+      </div>
+    </div>
+  </footer>
   
   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
   <script src="https://d3js.org/d3.v6.js"></script>
   <script src="https://unpkg.com/topojson@3"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="js/data.js?7"></script>
+  <script src="./js/all.js"></script>
   <script src="js/map_chart.js"></script>
 </body>
 </html>
