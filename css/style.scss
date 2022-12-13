@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+#app {
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.big-title {
+  // max-width: 521px;
+  // margin: 0 auto;
+  margin-bottom: 30px;
+  
+  h2 {
+    font-size: 20px;
+    letter-spacing: 0.745em;
+    border-bottom: 1px solid #000;
+    padding-bottom: 6px;
+    margin: 0 0 13px 0;
+    font-weight: normal;
+    @media screen and (min-width:900px) {
+      font-size: 24px;
+      border-bottom: 2px solid #000;
+      padding-bottom: 13px;
+      margin: 0 0 17px 0;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .info {
+    font-size: 16px;
+    line-height: 26px;
+    @media screen and (min-width:900px) {
+      font-size: 18px;
+      line-height: 30px;
+      max-width: 521px;
+    }
+  }
+}
+
+@import 'map';
+@import 'charts';
