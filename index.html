@@ -74,7 +74,7 @@
   </div>
   <!-- Header End-->
 
-  <div class="main" id="map_chart">
+  <div class="main">
     <!-- Section KV-->
     <section class="section-kv section-index-sections"><img class="d-none d-lg-block w-100" src="img/kv/kv-d.png" alt=""/></section>
     
@@ -115,268 +115,270 @@
       </div>
     </section>
 
-    <section id="map">
-      <div class="container">
-        <div class="big-title">
-          <h2>
-            <img src="img/map-title.svg" alt="台灣客家人口數據地圖">
-          </h2>
-          <div class="info">《客新聞》依據客委會的調查報告，將全台灣各個鄉鎮市區推估設籍的客家人口比例、客家人口數轉製成互動地圖，並依照數值高低上色，成為精美面量圖，只要點選行政區域，即可看到該區域的客家人口小檔案。</div>
-        </div>
+    <div id="map_chart">
+      <section id="map">
+        <div class="tk-container">
+          <div class="big-title">
+            <h2>
+              <img src="img/map-title.svg" alt="台灣客家人口數據地圖">
+            </h2>
+            <div class="info">《客新聞》依據客委會的調查報告，將全台灣各個鄉鎮市區推估設籍的客家人口比例、客家人口數轉製成互動地圖，並依照數值高低上色，成為精美面量圖，只要點選行政區域，即可看到該區域的客家人口小檔案。</div>
+          </div>
 
-        <div class="flex">
-          <div>
-            <div class="tabs">
-              <div :class="{tab: true, active: mapTab == 'map1'}" @click="updateMap('map1')">依人口數</div>
-              <div :class="{tab: true, active: mapTab == 'map2'}" @click="updateMap('map2')">依人口比例</div>
+          <div class="flex">
+            <div>
+              <div class="tabs">
+                <div :class="{tab: true, active: mapTab == 'map1'}" @click="updateMap('map1')">依人口數</div>
+                <div :class="{tab: true, active: mapTab == 'map2'}" @click="updateMap('map2')">依人口比例</div>
+              </div>
+      
+              <div class="note">
+                <div class="title">備註</div>
+                <div>本調查將澎湖縣、金門縣及連江縣以「縣」為單位。</div>
+              </div>
             </div>
     
-            <div class="note">
-              <div class="title">備註</div>
-              <div>本調查將澎湖縣、金門縣及連江縣以「縣」為單位。</div>
-            </div>
-          </div>
-  
-          <div class="svg-wrapper">
-            <svg id="svg" width="345" height="530" viewbox="0 0 345 530">
-              <g id="islands" transform="translate(-652.9, -27)" style="display: none;">
-                <g id="Matsu_Islands">
-                  <rect x="664.2" y="38.4" fill="#f0ce77" stroke="#231815" stroke-width="0.5" stroke-miterlimit="10" width="57.9" height="54"/>
-                  <g>
-                    <path fill="#231815" d="M675.2,82.3l0.7,1l0.6-0.6l0.5-0.3l-0.8-0.4L675.2,82.3z M677.1,66.5l-1.2,0.7
-                      l-0.3-0.1l-0.6-0.2l-0.1-0.2l0-0.4l-0.3,0l-0.3,0.6l-0.1,0.8l0.2,0.7l0.7,0.5l0.5-0.1l1.5-0.8l0.8-0.9l0-0.5L677.1,66.5z
-                       M717.9,49l-0.2-0.4l-0.7-0.4l-0.6,0.5l-0.3,0.2l0.1,0.4l-0.3,0.5l0.3,0.2l0.2,0.1l0.3,0.1l0.1,0.1l0.3-0.6l0.2-0.3l0.2-0.1
-                      l0.2,0.1l0.2,0l0.3-0.1L717.9,49z M681.6,62.1l-0.2-0.2l-0.2-0.1l-0.4-0.6l-0.7-0.1l-0.6,0.4l-0.2,0.3l-0.7,0.2l-0.3,0.2
-                      l-0.1,0.5l-0.1,1.2l0.1,0.4l0.3,0.2l0.3-1.4l0.4-0.5l0.4-0.1l0.3,0.1l0.7-0.4l0.3,0.2l0.4,0.6l0.4,0.3l0-0.2l-0.1-0.3l0.1-0.3
-                      L681.6,62.1z M679.4,83.2l-0.7-0.2l-0.7,1.6l0.7-0.3l0.5-0.2l0.6-0.6l0-0.6l-0.3,0.1L679.4,83.2z"/>
+            <div class="svg-wrapper">
+              <svg id="svg" width="345" height="530" viewbox="0 0 345 530">
+                <g id="islands" transform="translate(-652.9, -27)" style="display: none;">
+                  <g id="Matsu_Islands">
+                    <rect x="664.2" y="38.4" fill="#f0ce77" stroke="#231815" stroke-width="0.5" stroke-miterlimit="10" width="57.9" height="54"/>
+                    <g>
+                      <path fill="#231815" d="M675.2,82.3l0.7,1l0.6-0.6l0.5-0.3l-0.8-0.4L675.2,82.3z M677.1,66.5l-1.2,0.7
+                        l-0.3-0.1l-0.6-0.2l-0.1-0.2l0-0.4l-0.3,0l-0.3,0.6l-0.1,0.8l0.2,0.7l0.7,0.5l0.5-0.1l1.5-0.8l0.8-0.9l0-0.5L677.1,66.5z
+                        M717.9,49l-0.2-0.4l-0.7-0.4l-0.6,0.5l-0.3,0.2l0.1,0.4l-0.3,0.5l0.3,0.2l0.2,0.1l0.3,0.1l0.1,0.1l0.3-0.6l0.2-0.3l0.2-0.1
+                        l0.2,0.1l0.2,0l0.3-0.1L717.9,49z M681.6,62.1l-0.2-0.2l-0.2-0.1l-0.4-0.6l-0.7-0.1l-0.6,0.4l-0.2,0.3l-0.7,0.2l-0.3,0.2
+                        l-0.1,0.5l-0.1,1.2l0.1,0.4l0.3,0.2l0.3-1.4l0.4-0.5l0.4-0.1l0.3,0.1l0.7-0.4l0.3,0.2l0.4,0.6l0.4,0.3l0-0.2l-0.1-0.3l0.1-0.3
+                        L681.6,62.1z M679.4,83.2l-0.7-0.2l-0.7,1.6l0.7-0.3l0.5-0.2l0.6-0.6l0-0.6l-0.3,0.1L679.4,83.2z"/>
+                    </g>
+                  </g>
+                  <g id="Kinmen">
+                    <rect x="664.2" y="100" fill="#f0ce77" stroke="#231815" stroke-width="0.5" stroke-miterlimit="10" width="57.9" height="54"/>
+                    <g>
+                      <path fill="#231815" d="M679.8,130.9l-1.1,0l-1.1,0.3l-0.7,0.7l-2.7,5.3l1.6,0.6l2.8-0.8l0.6-0.4l0.3-0.6l0.6-0.6
+                        l0.9-0.1l0.7-1.1l0-1.7l-0.9-1L679.8,130.9z M690.6,117l0.9-0.7l0.4-1.2l-0.2-1.2l-1.4-0.9l-2.4,0.3l-0.8,0.3l-0.5,0.6l0.5,0.6
+                        L690.6,117z M707.8,122.8l-3.8-3.4l-4,0.8l-1.2,2.9l-0.6,4.6l-3.7,0.5l-5.3-3.5l-4,2l-0.8,0.5l0.1,1.1l0.9,2.2l0.4,2.3l0.1,1.3
+                        l-0.1,1.1l-0.4,0.7l-1.2,1.5l-0.2,0.4l0.6,1.1l1.3,0.6l1.4,0.1l2.1,1l1.8-0.9l2.1-3.2l3.8-2.4l4.3-0.4l2.7,0.9l3.6,2.3l2-2.5
+                        l0.6-4.6L707.8,122.8z M681.2,122.7l-2,2.7l0.3,1.7l2.6-0.4l1.8-2.3l-0.6-2.4L681.2,122.7z"/>
+                    </g>
+                  </g>
+                  <g id="Penghu">
+                    <rect x="664.2" y="163.6" fill="#f0ce77" stroke="#231815" stroke-width="0.5" stroke-miterlimit="10" width="57.9" height="99.8"/>
+                    <g>
+                      <path fill="#231815" d="M670.7,236.3l-0.2,0.1l0.1,0.2l0,0l0.1,0.1l0.2-0.1l0-0.3L670.7,236.3z M670.7,236.2l0.2,0
+                        l0-0.5l-0.4-0.3L670.7,236.2z M707.2,172.5l0.6,1.4l0,0l0.1,0.2l0.2-0.5l1-1.3l1.2-0.7l0.2-1l-1.3-0.8l0-0.2l-0.2-0.4l-0.3,0.5
+                        L708,171l-0.9,0.7l0.2,0.5L707.2,172.5z M684.4,251l-2,0.7l-0.5,0.7l0.8,2.5l0.7,0.8l0.9-0.5l0.9-1.2l0.6-0.6l0.1-0.9l-0.1-1.1
+                        L684.4,251z M692,198.3l1.6-0.3l0.2-0.7l-0.4-1l0.1-1.2l1.5-4.5l0.9-1.9l1.3-0.8l-2.2-1.9l-1.7,1.6l-1.7,5.5l0,2.5l-0.3,1.1
+                        l-1.2,0.4l-1.3,0.1l-1,0.3l-0.6,0.7l-0.3,1.1h2l0.6-0.5l0.7-0.3l0.8-0.1L692,198.3z M704.4,187.5l0.5,1.8l0.6,0.8l1.2-0.3
+                        l0.8-1.2l-0.5-1.9l1.3-1.3l-0.7-1.6l-1.7-1.5l-1.7-0.9l-3,2.2l2.3,2.3L704.4,187.5z M668.8,235.4l-0.3,0.1l0.1,0.2l0.1,0.1
+                        l0.2-0.1L668.8,235.4L668.8,235.4z M669.7,222.7l-0.7-0.3l-0.2,0l-0.4-0.1l-0.1,0.2l-0.1,0l-0.5,1.2l0.4,0.3v0.1l0.2,0.3l1.1-0.3
+                        l0.3-0.5l-0.2-0.6L669.7,222.7z M683.7,248.8l-1-1.6l-1.7-0.3l-0.6,0.6l0.1,1.3l1.1,1.3l1.2,0.4L683.7,248.8z M694.4,244l1-0.4
+                        l-0.3-0.5L694.4,244z M716,244.4l-0.4,0.4l-0.2,0l0.2,0.1l-0.1,0.1l0.3,0l0.3,0.1v-0.3h-0.1L716,244.4z M717.2,200.3l1,1.1
+                        l0.3-1.6l-0.7-2.1l-2.5-4.6l-0.9,1.4l-1.2,0.1l-1.6-0.2l-2.1,0.7l0.3-0.7l0.7-2.3l-2.5,0.8l-3.9,2.5L703,195h-1l-0.1,2.1l0.1,2.1
+                        l0.6-0.3l0.1-0.1v-0.2l0.3-0.5l0.7,1.2l0.8,0.9l1,0.6l1.3,0.5l-1.9,1.5l-2.3,0.6l-2.1-0.5l-1.4-1.7l-0.7,1.3l2.6,2.6l2.6,1
+                        l2.6-0.4l2.5-1.4l0.4-0.6l0.6-2.2l0.4-0.8l0.7-0.4l1.5-0.2l2.1-1.2l1.5,0.3L717.2,200.3z M717.1,244.8l-0.2-0.1l0,0.1h0l-0.1,1
+                        l0.3,0.7l0.3,0.8v0l0,0l0.4-1l0.6-0.8l-0.2-0.1l0.2-0.6H717.1z M710.2,245.7l-0.1-0.3l-0.1,0.4L710.2,245.7L710.2,245.7z
+                        M697.7,228l-0.4,0.3l-0.6,0.8l-0.2,0.7l0.2,0.2l1.6-0.9l0.4,0l0.5-0.1l0.1-0.7l-0.8-0.5L697.7,228z M695,227.5l-0.3-0.8
+                        l-0.1-1.2l-0.3-0.3l-0.3-0.1l-1.4-1.9l-0.9,0.2l-1.1,2.7l0.3,1.2l1.1-0.3l0.5-0.3l0.1,2.2l-0.8,1.6l0.8,0.4l1.7,0.2l0.8-0.3
+                        l-0.2-0.5l0-0.5l0.6-0.6l0.4-0.8l-0.4-0.4L695,227.5z M710.4,246.3l-0.2-0.4l-0.3,0l-0.2,0.1l-0.9,0.1l0.1,0.2l-0.2,0.1l0.6,0.7
+                        l0,0h0l0,0l0.2,0h0.4l0,0l0.6-0.1l-0.3-0.5L710.4,246.3z M699.5,209.2l-1.3-0.3l-1.2,0.6l0,0l-0.2,0.1l-0.5,0.2L696,210l-1-0.3
+                        l-0.3,0.2l0,0l0,0l-0.1,0.1l0.2,1l0.5,0.1l0,0l0.1,0.2l1.2-0.6l0.7-0.3l0.4,0l0.2-0.2l0.2-0.1L699.5,209.2L699.5,209.2
+                        L699.5,209.2z"/>
+                    </g>
+                    
                   </g>
                 </g>
-                <g id="Kinmen">
-                  <rect x="664.2" y="100" fill="#f0ce77" stroke="#231815" stroke-width="0.5" stroke-miterlimit="10" width="57.9" height="54"/>
-                  <g>
-                    <path fill="#231815" d="M679.8,130.9l-1.1,0l-1.1,0.3l-0.7,0.7l-2.7,5.3l1.6,0.6l2.8-0.8l0.6-0.4l0.3-0.6l0.6-0.6
-                      l0.9-0.1l0.7-1.1l0-1.7l-0.9-1L679.8,130.9z M690.6,117l0.9-0.7l0.4-1.2l-0.2-1.2l-1.4-0.9l-2.4,0.3l-0.8,0.3l-0.5,0.6l0.5,0.6
-                      L690.6,117z M707.8,122.8l-3.8-3.4l-4,0.8l-1.2,2.9l-0.6,4.6l-3.7,0.5l-5.3-3.5l-4,2l-0.8,0.5l0.1,1.1l0.9,2.2l0.4,2.3l0.1,1.3
-                      l-0.1,1.1l-0.4,0.7l-1.2,1.5l-0.2,0.4l0.6,1.1l1.3,0.6l1.4,0.1l2.1,1l1.8-0.9l2.1-3.2l3.8-2.4l4.3-0.4l2.7,0.9l3.6,2.3l2-2.5
-                      l0.6-4.6L707.8,122.8z M681.2,122.7l-2,2.7l0.3,1.7l2.6-0.4l1.8-2.3l-0.6-2.4L681.2,122.7z"/>
-                  </g>
-                </g>
-                <g id="Penghu">
-                  <rect x="664.2" y="163.6" fill="#f0ce77" stroke="#231815" stroke-width="0.5" stroke-miterlimit="10" width="57.9" height="99.8"/>
-                  <g>
-                    <path fill="#231815" d="M670.7,236.3l-0.2,0.1l0.1,0.2l0,0l0.1,0.1l0.2-0.1l0-0.3L670.7,236.3z M670.7,236.2l0.2,0
-                      l0-0.5l-0.4-0.3L670.7,236.2z M707.2,172.5l0.6,1.4l0,0l0.1,0.2l0.2-0.5l1-1.3l1.2-0.7l0.2-1l-1.3-0.8l0-0.2l-0.2-0.4l-0.3,0.5
-                      L708,171l-0.9,0.7l0.2,0.5L707.2,172.5z M684.4,251l-2,0.7l-0.5,0.7l0.8,2.5l0.7,0.8l0.9-0.5l0.9-1.2l0.6-0.6l0.1-0.9l-0.1-1.1
-                      L684.4,251z M692,198.3l1.6-0.3l0.2-0.7l-0.4-1l0.1-1.2l1.5-4.5l0.9-1.9l1.3-0.8l-2.2-1.9l-1.7,1.6l-1.7,5.5l0,2.5l-0.3,1.1
-                      l-1.2,0.4l-1.3,0.1l-1,0.3l-0.6,0.7l-0.3,1.1h2l0.6-0.5l0.7-0.3l0.8-0.1L692,198.3z M704.4,187.5l0.5,1.8l0.6,0.8l1.2-0.3
-                      l0.8-1.2l-0.5-1.9l1.3-1.3l-0.7-1.6l-1.7-1.5l-1.7-0.9l-3,2.2l2.3,2.3L704.4,187.5z M668.8,235.4l-0.3,0.1l0.1,0.2l0.1,0.1
-                      l0.2-0.1L668.8,235.4L668.8,235.4z M669.7,222.7l-0.7-0.3l-0.2,0l-0.4-0.1l-0.1,0.2l-0.1,0l-0.5,1.2l0.4,0.3v0.1l0.2,0.3l1.1-0.3
-                      l0.3-0.5l-0.2-0.6L669.7,222.7z M683.7,248.8l-1-1.6l-1.7-0.3l-0.6,0.6l0.1,1.3l1.1,1.3l1.2,0.4L683.7,248.8z M694.4,244l1-0.4
-                      l-0.3-0.5L694.4,244z M716,244.4l-0.4,0.4l-0.2,0l0.2,0.1l-0.1,0.1l0.3,0l0.3,0.1v-0.3h-0.1L716,244.4z M717.2,200.3l1,1.1
-                      l0.3-1.6l-0.7-2.1l-2.5-4.6l-0.9,1.4l-1.2,0.1l-1.6-0.2l-2.1,0.7l0.3-0.7l0.7-2.3l-2.5,0.8l-3.9,2.5L703,195h-1l-0.1,2.1l0.1,2.1
-                      l0.6-0.3l0.1-0.1v-0.2l0.3-0.5l0.7,1.2l0.8,0.9l1,0.6l1.3,0.5l-1.9,1.5l-2.3,0.6l-2.1-0.5l-1.4-1.7l-0.7,1.3l2.6,2.6l2.6,1
-                      l2.6-0.4l2.5-1.4l0.4-0.6l0.6-2.2l0.4-0.8l0.7-0.4l1.5-0.2l2.1-1.2l1.5,0.3L717.2,200.3z M717.1,244.8l-0.2-0.1l0,0.1h0l-0.1,1
-                      l0.3,0.7l0.3,0.8v0l0,0l0.4-1l0.6-0.8l-0.2-0.1l0.2-0.6H717.1z M710.2,245.7l-0.1-0.3l-0.1,0.4L710.2,245.7L710.2,245.7z
-                       M697.7,228l-0.4,0.3l-0.6,0.8l-0.2,0.7l0.2,0.2l1.6-0.9l0.4,0l0.5-0.1l0.1-0.7l-0.8-0.5L697.7,228z M695,227.5l-0.3-0.8
-                      l-0.1-1.2l-0.3-0.3l-0.3-0.1l-1.4-1.9l-0.9,0.2l-1.1,2.7l0.3,1.2l1.1-0.3l0.5-0.3l0.1,2.2l-0.8,1.6l0.8,0.4l1.7,0.2l0.8-0.3
-                      l-0.2-0.5l0-0.5l0.6-0.6l0.4-0.8l-0.4-0.4L695,227.5z M710.4,246.3l-0.2-0.4l-0.3,0l-0.2,0.1l-0.9,0.1l0.1,0.2l-0.2,0.1l0.6,0.7
-                      l0,0h0l0,0l0.2,0h0.4l0,0l0.6-0.1l-0.3-0.5L710.4,246.3z M699.5,209.2l-1.3-0.3l-1.2,0.6l0,0l-0.2,0.1l-0.5,0.2L696,210l-1-0.3
-                      l-0.3,0.2l0,0l0,0l-0.1,0.1l0.2,1l0.5,0.1l0,0l0.1,0.2l1.2-0.6l0.7-0.3l0.4,0l0.2-0.2l0.2-0.1L699.5,209.2L699.5,209.2
-                      L699.5,209.2z"/>
-                  </g>
-                  
-                </g>
-              </g>
-              <g class="tw"></g>
-            </svg>
-            <img class="man" src="img/map-man.png" alt="">
-            <img v-if="mapTab == 'map1'" class="legend" src="img/legend-map1.svg" alt="">
-            <img v-if="mapTab == 'map2'" class="legend" src="img/legend-map2.svg" alt="">
+                <g class="tw"></g>
+              </svg>
+              <img class="man" src="img/map-man.png" alt="">
+              <img v-if="mapTab == 'map1'" class="legend" src="img/legend-map1.svg" alt="">
+              <img v-if="mapTab == 'map2'" class="legend" src="img/legend-map2.svg" alt="">
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="filter">
-        <div class="col">
-          <div class="select county">
-            <select v-model="filter.selectedCounty" @change="changeCounty">
-              <option value="臺北市">臺北市</option>
-              <option value="新北市">新北市</option>
-              <option value="桃園市">桃園市</option>
-              <option value="新竹縣">新竹縣</option>
-              <option value="新竹市">新竹市</option>
-              <option value="苗栗縣">苗栗縣</option>
-              <option value="臺中市">臺中市</option>
-              <option value="南投縣">南投縣</option>
-              <option value="彰化縣">彰化縣</option>
-              <option value="雲林縣">雲林縣</option>
-              <option value="嘉義縣">嘉義縣</option>
-              <option value="嘉義市">嘉義市</option>
-              <option value="臺南市">臺南市</option>
-              <option value="高雄市">高雄市</option>
-              <option value="屏東縣">屏東縣</option>
-              <option value="基隆市">基隆市</option>
-              <option value="宜蘭縣">宜蘭縣</option>
-              <option value="花蓮縣">花蓮縣</option>
-              <option value="臺東縣">臺東縣</option>
-              <option value="金門縣">金門縣</option>
-              <option value="澎湖縣">澎湖縣</option>
-              <option value="連江縣">連江縣</option>
-            </select>
+        <div class="filter">
+          <div class="col">
+            <div class="select county">
+              <select v-model="filter.selectedCounty" @change="changeCounty">
+                <option value="臺北市">臺北市</option>
+                <option value="新北市">新北市</option>
+                <option value="桃園市">桃園市</option>
+                <option value="新竹縣">新竹縣</option>
+                <option value="新竹市">新竹市</option>
+                <option value="苗栗縣">苗栗縣</option>
+                <option value="臺中市">臺中市</option>
+                <option value="南投縣">南投縣</option>
+                <option value="彰化縣">彰化縣</option>
+                <option value="雲林縣">雲林縣</option>
+                <option value="嘉義縣">嘉義縣</option>
+                <option value="嘉義市">嘉義市</option>
+                <option value="臺南市">臺南市</option>
+                <option value="高雄市">高雄市</option>
+                <option value="屏東縣">屏東縣</option>
+                <option value="基隆市">基隆市</option>
+                <option value="宜蘭縣">宜蘭縣</option>
+                <option value="花蓮縣">花蓮縣</option>
+                <option value="臺東縣">臺東縣</option>
+                <option value="金門縣">金門縣</option>
+                <option value="澎湖縣">澎湖縣</option>
+                <option value="連江縣">連江縣</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <div class="select town">
+              <select v-model="filter.selectedTown" @change="updateTooltip">
+                <option v-for="(item, idx) in townList" :value="item" :key="idx">{{item}}</option>
+              </select>
+            </div>
           </div>
         </div>
-        <div class="col">
-          <div class="select town">
-            <select v-model="filter.selectedTown" @change="updateTooltip">
-              <option v-for="(item, idx) in townList" :value="item" :key="idx">{{item}}</option>
-            </select>
-          </div>
-        </div>
-      </div>
 
-      <div class="tooltip">
-        <div class="title">客家人口小檔案</div>
-        <div class="inner">
-          <h3>{{tooltipData.name}}</h3>
-          <table>
-            <tr>
-              <td>設籍人口</td>
-              <td class="num1">{{tooltipData.amount}}</td>
-            </tr>
-            <tr>
-              <td>設籍客家人口</td>
-              <td class="num2">{{tooltipData.map1}}</td>
-            </tr>
-            <tr>
-              <td>客家人口比例</td>
-              <td class="num3">{{tooltipData.map2}}%</td>
-            </tr>
-          </table>
-          <div class="unit">單位：千人</div>
+        <div class="tk-tooltip">
+          <div class="title">客家人口小檔案</div>
+          <div class="inner">
+            <h3>{{tooltipData.name}}</h3>
+            <table class="tk-table">
+              <tr>
+                <td>設籍人口</td>
+                <td class="num1">{{tooltipData.amount}}</td>
+              </tr>
+              <tr>
+                <td>設籍客家人口</td>
+                <td class="num2">{{tooltipData.map1}}</td>
+              </tr>
+              <tr>
+                <td>客家人口比例</td>
+                <td class="num3">{{tooltipData.map2}}%</td>
+              </tr>
+            </table>
+            <div class="unit">單位：千人</div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="sec-a">
-      <div class="container">
-        <div class="big-title">
-          <h2>
-            <img src="img/chart-title.svg" alt="數字看客家">
-          </h2>
-          <div class="info">進一步分析全國466.9萬客家人口的性別比、居住地、年齡分布、腔調與客語聽說能力，可以勾勒出台灣客家族群人口數、分布、語言能力與認同情形。</div>
-        </div>
-        <div class="content">
-          <div class="sec-desc">
-            <div class="sec-title">
-              <img src="img/title-a.svg" alt="">
-              <div>
-                <span>A</span>數字看客家
-              </div>
-              <img class="man" src="img/chart-man.png" alt="">
-            </div>
-            <div class="text" v-if="chart1Tab == '族群'">調查結果顯示，全國約有466.9萬人符合《客家基本法》的客家人定義，約占台灣2,356.1萬人口的19.8%。</div>
-            <div class="text" v-if="chart1Tab == '居住地'">調查報告推估，客家人口呈現男性略多於女性的情形，與國內目前女性（50.3%）略多於男性（49.7%）的比例略有差異。</div>
-            <div class="text" v-if="chart1Tab == '性別'">全國466.9萬客家人之中，超過一半的客家人並沒有住在客庄。</div>
-            <div class="tabs">
-              <div :class="{tab: true, active: chart1Tab == '族群'}" @click="drawPie('族群', [80.2, 19.8])">族群</div>
-              <div :class="{tab: true, active: chart1Tab == '居住地'}" @click="drawPie('居住地', [53.7, 46.3])">居住地</div>
-              <div :class="{tab: true, active: chart1Tab == '性別'}" @click="drawPie('性別', [48.7, 51.3])">性別</div>
-            </div>
+      <section class="sec-a">
+        <div class="tk-container">
+          <div class="big-title">
+            <h2>
+              <img src="img/chart-title.svg" alt="數字看客家">
+            </h2>
+            <div class="info">進一步分析全國466.9萬客家人口的性別比、居住地、年齡分布、腔調與客語聽說能力，可以勾勒出台灣客家族群人口數、分布、語言能力與認同情形。</div>
           </div>
-          <div class="chart-wrapper">
-            <svg id="pie" viewbox="0 0 500 500"></svg>
-          </div>
-        </div>
-      </div>
-    </section>
-  
-    <section class="sec-b">
-      <div class="container">
-        <div class="content">
-          <div class="sec-desc">
-            <div class="sec-title">
-              <img src="img/title-a.svg" alt="">
-              <div>
-                <span>B</span>數字看客家
-              </div>
-              <img class="man" src="img/chart-man.png" alt="">
-            </div>
-            <div class="text" v-if="chart2Tab == '縣市'">在年齡結構方面，客家民眾在0-39 歲、60-69 歲比率，相對較全國人口比例高；40-59 歲、70 歲以上人口比率則相對較全國人口比率低。</div>
-            <div class="text" v-if="chart2Tab == '年齡'">在年齡結構方面，客家民眾在0-39 歲、60-69 歲比率，相對較全國人口比例高；40-59 歲、70 歲以上人口比率則相對較全國人口比率低。</div>
-            <div class="text" v-if="chart2Tab == '腔調'">調查顯示，在可複選的情況下，有26.7%的客家民眾至少能使用兩種客語腔調。<br>客家民眾所使用且能分辨出來的客語腔調，仍是「四縣腔」的比率最高，其次為「海陸腔」。</div>
-            <div class="tabs">
-              <div :class="{tab: true, active: chart2Tab == '縣市'}" @click="drawChart2('縣市')">縣市</div>
-              <div :class="{tab: true, active: chart2Tab == '年齡'}" @click="drawChart2('年齡')">年齡</div>
-              <div :class="{tab: true, active: chart2Tab == '腔調'}" @click="drawChart2('腔調')">腔調</div>
-            </div>
-          </div>
-          <div class="chart-wrapper">
-            <div>
-              <div class="canvas-wrapper75">
-                <div class="a" v-if="chart2Tab == '縣市'">客家全國總數：4,669,200人</div>
-                <div class="b" v-if="chart2Tab == '縣市'">占全國比例 19.82%</div>
-                <div class="y-unit y-unit1" v-if="chart2Tab == '縣市'">單位：千人</div>
-                <div class="y-unit y-unit2" v-else>單位：百分比</div>
-                <div class="legend" v-if="chart2Tab == '年齡'">
-                  <div class="item">
-                    <div class="rect" style="background: #dd467d;"></div>客家人口
-                  </div>
-                  <div class="item">
-                    <div class="rect" style="background: #2c345c;"></div>全國人口
-                  </div>
+          <div class="content">
+            <div class="sec-desc">
+              <div class="sec-title">
+                <img src="img/title-a.svg" alt="">
+                <div>
+                  <span>A</span>數字看客家
                 </div>
-                <canvas id="chart2"></canvas>
+                <img class="man" src="img/chart-man.png" alt="">
               </div>
+              <div class="text" v-if="chart1Tab == '族群'">調查結果顯示，全國約有466.9萬人符合《客家基本法》的客家人定義，約占台灣2,356.1萬人口的19.8%。</div>
+              <div class="text" v-if="chart1Tab == '居住地'">調查報告推估，客家人口呈現男性略多於女性的情形，與國內目前女性（50.3%）略多於男性（49.7%）的比例略有差異。</div>
+              <div class="text" v-if="chart1Tab == '性別'">全國466.9萬客家人之中，超過一半的客家人並沒有住在客庄。</div>
+              <div class="tabs">
+                <div :class="{tab: true, active: chart1Tab == '族群'}" @click="drawPie('族群', [80.2, 19.8])">族群</div>
+                <div :class="{tab: true, active: chart1Tab == '居住地'}" @click="drawPie('居住地', [53.7, 46.3])">居住地</div>
+                <div :class="{tab: true, active: chart1Tab == '性別'}" @click="drawPie('性別', [48.7, 51.3])">性別</div>
+              </div>
+            </div>
+            <div class="chart-wrapper">
+              <svg id="pie" viewbox="0 0 500 500"></svg>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  
-    <section class="sec-c">
-      <div class="container">
-        <div class="content">
-          <div class="sec-desc">
-            <div class="sec-title">
-              <img src="img/title-a.svg" alt="">
-              <div>
-                <span>C</span>客家人講客嗎？
+      </section>
+    
+      <section class="sec-b">
+        <div class="tk-container">
+          <div class="content">
+            <div class="sec-desc">
+              <div class="sec-title">
+                <img src="img/title-a.svg" alt="">
+                <div>
+                  <span>B</span>數字看客家
+                </div>
+                <img class="man" src="img/chart-man.png" alt="">
               </div>
-              <img class="man" src="img/chart-man.png" alt="">
+              <div class="text" v-if="chart2Tab == '縣市'">在年齡結構方面，客家民眾在0-39 歲、60-69 歲比率，相對較全國人口比例高；40-59 歲、70 歲以上人口比率則相對較全國人口比率低。</div>
+              <div class="text" v-if="chart2Tab == '年齡'">在年齡結構方面，客家民眾在0-39 歲、60-69 歲比率，相對較全國人口比例高；40-59 歲、70 歲以上人口比率則相對較全國人口比率低。</div>
+              <div class="text" v-if="chart2Tab == '腔調'">調查顯示，在可複選的情況下，有26.7%的客家民眾至少能使用兩種客語腔調。<br>客家民眾所使用且能分辨出來的客語腔調，仍是「四縣腔」的比率最高，其次為「海陸腔」。</div>
+              <div class="tabs">
+                <div :class="{tab: true, active: chart2Tab == '縣市'}" @click="drawChart2('縣市')">縣市</div>
+                <div :class="{tab: true, active: chart2Tab == '年齡'}" @click="drawChart2('年齡')">年齡</div>
+                <div :class="{tab: true, active: chart2Tab == '腔調'}" @click="drawChart2('腔調')">腔調</div>
+              </div>
             </div>
-            <div class="text">
-              依據調查，有56.4%的客家民眾能聽懂客語；可以流利使用客語的客家民眾僅38.3%。<br><br>
-              調查顯示，客家民眾客語聽說能力，呈現年齡越高、學歷越低，越能流利使用客語的趨勢，且女性客語聽說能力略優於男性；客庄所在地的桃竹苗、高屏、花東，客語能力也普遍優於其他地區。
-            </div>
-            <div class="tabs">
-              <div :class="{tab: true, active: chart3Tab == '年齡'}" @click="drawChart3('年齡')">年齡</div>
-              <div :class="{tab: true, active: chart3Tab == '性別'}" @click="drawChart3('性別')">性別</div>
-              <div :class="{tab: true, active: chart3Tab == '教育1' || chart3Tab == '教育2'}" @click="drawChart3('教育1')">教育</div>
-              <div :class="{tab: true, active: chart3Tab == '地區'}" @click="drawChart3('地區')">地區</div>
-            </div>
-          </div>
-          <div class="chart-wrapper">
-            <div>
-              <div class="canvas-wrapper60">
-                <canvas id="chart3"></canvas>
-                <div class="legend">
-                  <div class="item">
-                    <div class="rect" style="background: #3b4d1e;"></div>聽懂
+            <div class="chart-wrapper">
+              <div>
+                <div class="canvas-wrapper75">
+                  <div class="a" v-if="chart2Tab == '縣市'">客家全國總數：4,669,200人</div>
+                  <div class="b" v-if="chart2Tab == '縣市'">占全國比例 19.82%</div>
+                  <div class="y-unit y-unit1" v-if="chart2Tab == '縣市'">單位：千人</div>
+                  <div class="y-unit y-unit2" v-else>單位：百分比</div>
+                  <div class="legend" v-if="chart2Tab == '年齡'">
+                    <div class="item">
+                      <div class="rect" style="background: #dd467d;"></div>客家人口
+                    </div>
+                    <div class="item">
+                      <div class="rect" style="background: #2c345c;"></div>全國人口
+                    </div>
                   </div>
-                  <div class="item">
-                    <div class="rect" style="background: #e6e1a1;"></div>會說（流利）
-                  </div>
+                  <canvas id="chart2"></canvas>
                 </div>
               </div>
-              <div v-if="chart3Tab == '教育1' || chart3Tab == '教育2'" class="edu-tab">
-                <div :class="{tab: true, active: chart3Tab == '教育1'}" @click="drawChart3('教育1')">18歲以下</div>
-                <div :class="{tab: true, active: chart3Tab == '教育2'}" @click="drawChart3('教育2')">19歲以上</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <section class="sec-c">
+        <div class="tk-container">
+          <div class="content">
+            <div class="sec-desc">
+              <div class="sec-title">
+                <img src="img/title-a.svg" alt="">
+                <div>
+                  <span>C</span>客家人講客嗎？
+                </div>
+                <img class="man" src="img/chart-man.png" alt="">
+              </div>
+              <div class="text">
+                依據調查，有56.4%的客家民眾能聽懂客語；可以流利使用客語的客家民眾僅38.3%。<br><br>
+                調查顯示，客家民眾客語聽說能力，呈現年齡越高、學歷越低，越能流利使用客語的趨勢，且女性客語聽說能力略優於男性；客庄所在地的桃竹苗、高屏、花東，客語能力也普遍優於其他地區。
+              </div>
+              <div class="tabs">
+                <div :class="{tab: true, active: chart3Tab == '年齡'}" @click="drawChart3('年齡')">年齡</div>
+                <div :class="{tab: true, active: chart3Tab == '性別'}" @click="drawChart3('性別')">性別</div>
+                <div :class="{tab: true, active: chart3Tab == '教育1' || chart3Tab == '教育2'}" @click="drawChart3('教育1')">教育</div>
+                <div :class="{tab: true, active: chart3Tab == '地區'}" @click="drawChart3('地區')">地區</div>
+              </div>
+            </div>
+            <div class="chart-wrapper">
+              <div>
+                <div class="canvas-wrapper60">
+                  <canvas id="chart3"></canvas>
+                  <div class="legend">
+                    <div class="item">
+                      <div class="rect" style="background: #3b4d1e;"></div>聽懂
+                    </div>
+                    <div class="item">
+                      <div class="rect" style="background: #e6e1a1;"></div>會說（流利）
+                    </div>
+                  </div>
+                </div>
+                <div v-if="chart3Tab == '教育1' || chart3Tab == '教育2'" class="edu-tab">
+                  <div :class="{tab: true, active: chart3Tab == '教育1'}" @click="drawChart3('教育1')">18歲以下</div>
+                  <div :class="{tab: true, active: chart3Tab == '教育2'}" @click="drawChart3('教育2')">19歲以上</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <!-- Section News-->
     <section class="section-news section-charts" id="anchor-news">

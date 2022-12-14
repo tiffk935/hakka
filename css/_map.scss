@@ -7,7 +7,7 @@
     padding: 100px 0;
   }
 
-  .container {
+  .tk-container {
     max-width: 700px;
   }
 
@@ -168,7 +168,7 @@
     }
   }
 
-  .tooltip {
+  .tk-tooltip {
     // position: fixed;
     z-index: 10;
     background: #FFFFFF;
@@ -197,21 +197,21 @@
     }
 
     h3 {
-      margin: 0;
+      margin: 0 0 5px 0;
       color: #3251BE;
       font-size: 20px;
       padding: 0 15px;
       text-align: center;
     }
 
-    table {
+    .tk-table {
       width: 100%;
       border-collapse: collapse;
 
       td {
         width: 50%;
         text-align: right;
-        padding: 0 5px;
+        padding: 2px 5px;
 
         &.num1, &.num2, &.num3 {
           text-align: left;

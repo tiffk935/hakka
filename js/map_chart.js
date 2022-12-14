@@ -32,7 +32,7 @@ var vm = new Vue({
       self.updateMap('map1');
     });
 
-    this.tooltip = d3.select("#map .tooltip");
+    this.tooltip = d3.select("#map .tk-tooltip");
     this.changeCounty();
     // this.updateTooltip();
       
