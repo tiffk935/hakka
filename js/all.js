@@ -2,7 +2,7 @@ $(function () {
   $('.ham').on('click', function () {
     $('.ham-content').fadeToggle();
   })
-  $('.header a, .ham-content a').click(function(){
+  $('.header a, .ham-content a, .btn-go-map').click(function(){
     $('.ham-content').fadeOut();
     
     const isViewingIdx = $(this).data('section') === 'index'
@@ -34,8 +34,6 @@ var app = new Vue({
     hasAnswered: false,
     score: 0,
     hasAnswerDone: false,
-    results: [],
-    resultTxt: undefined
   },
   computed: {
     currentBgbyQuizIdx() {
@@ -51,9 +49,6 @@ var app = new Vue({
     fetch("./quiz.json")
       .then((e) => e.json())
       .then((e) => { this.questions = e; });
-    fetch("./result.json")
-      .then((e) => e.json())
-      .then((e) => { this.results = e; });
   },
   methods: {
     selectOption(val) {
@@ -96,7 +91,6 @@ var app = new Vue({
     },
     endQuiz() {
       this.hasAnswerDone = true
-      this.resultTxt = this.results[this.score]
     }
   },
 });

@@ -80,42 +80,43 @@
     
     <!-- Section Quiz-->
     <section class="section-quiz section-index-sections" id="quiz-app">
-      <div class="square" v-if="questions">
-        <div class="quiz-wrap" v-if="!hasAnswerDone"><img class="quiz-title" src="img/quiz/quiz-title.png" alt="客家人口快問快答"/>
-          <div class="quiz-question"><img class="question-img" :src="`img/quiz/q${quizIdx+1}.png`" alt="1"/>
-            <p class="quiz-txt">{{questions[quizIdx]?.text}}</p>
+      <div class="quiz-main" v-cloak="v-cloak">
+        <div class="square" v-if="questions">
+          <div class="quiz-wrap" v-if="!hasAnswerDone"><img class="quiz-title" src="img/quiz/quiz-title.png" alt="客家人口快問快答"/>
+            <div class="quiz-question"><img class="question-img" :src="`img/quiz/q${quizIdx+1}.png`" alt="1"/>
+              <p class="quiz-txt">{{questions[quizIdx]?.text}}</p>
+            </div>
+            <ul class="quiz-options">
+              <li class="quiz-option" @click="selectOption(0)" :class="{'selected-option': selectedAnswer === 0}">{{questions[quizIdx]?.options[0]}}</li>
+              <li class="quiz-option" @click="selectOption(1)" :class="{'selected-option': selectedAnswer === 1}">{{questions[quizIdx]?.options[1]}}</li>
+              <li class="quiz-option" @click="selectOption(2)" :class="{'selected-option': selectedAnswer === 2}">{{questions[quizIdx]?.options[2]}}</li>
+              <li class="quiz-option" @click="selectOption(3)" :class="{'selected-option': selectedAnswer === 3}">{{questions[quizIdx]?.options[3]}}</li>
+            </ul>
+            <div class="confirm-block">
+              <div class="dialog-wrap"><img class="dialog dialog-correct" src="img/quiz/dialog-correct.png" alt=""/><img class="dialog dialog-wrong" src="img/quiz/dialog-wrong.png" alt=""/>
+                <div class="btn-confirm" @click="answer" :class="{ 'disabled': selectedAnswer === -1 }"><span>{{ nextStep }}</span><img class="arr" src="img/quiz/arr-r.png" alt=""/></div>
+              </div>
+              <div class="answer-block"><span class="answer-txt" v-for="(des,idx) in explanations">{{des}}</span>
+                <div class="answer-line d-none d-lg-block"></div>
+              </div>
+            </div>
           </div>
-          <ul class="quiz-options">
-            <li class="quiz-option" @click="selectOption(0)" :class="{'selected-option': selectedAnswer === 0}">{{questions[quizIdx]?.options[0]}}</li>
-            <li class="quiz-option" @click="selectOption(1)" :class="{'selected-option': selectedAnswer === 1}">{{questions[quizIdx]?.options[1]}}</li>
-            <li class="quiz-option" @click="selectOption(2)" :class="{'selected-option': selectedAnswer === 2}">{{questions[quizIdx]?.options[2]}}</li>
-            <li class="quiz-option" @click="selectOption(3)" :class="{'selected-option': selectedAnswer === 3}">{{questions[quizIdx]?.options[3]}}</li>
-          </ul>
-          <div class="confirm-block">
-            <div class="dialog-wrap"><img class="dialog dialog-correct" src="img/quiz/dialog-correct.png" alt=""/><img class="dialog dialog-wrong" src="img/quiz/dialog-wrong.png" alt=""/>
-              <div class="btn-confirm" @click="answer" :class="{ 'disabled': selectedAnswer === -1 }"><span>{{ nextStep }}</span><img class="arr" src="img/quiz/arr-r.png" alt=""/></div>
+          <div class="result-wrap" v-else="v-else"><img class="result-title" src="img/quiz/result-title.png" alt="問答總結"/>
+            <div class="txt-wrap">
+              <p class="result-intro">客家人口快問快答你獲得幾分呢？是否有許多答案與我們想的不一樣？看完解答後可以與朋友分享自己得分，並且可以繼續往下，透過《客新聞》製作的地圖來瞭解你所不知道的台灣客家人口數據現況！</p>
+              <div class="score-block"><img src="img/quiz/result-img.png" alt=""/>
+                <div class="score"><span class="num">{{score}}</span><span class="unit">分</span></div>
+              </div>
             </div>
-            <div class="answer-block"><span class="answer-txt" v-for="(des,idx) in explanations">{{des}}</span>
-              <div class="answer-line d-none d-lg-block"></div>
-            </div>
+            <div class="result-txt"><img :src="`img/quiz/${score}.png`" alt=""/></div>
           </div>
         </div>
-        <div class="result-wrap" v-else="v-else"><img class="result-title" src="img/quiz/result-title.png" alt="問答總結"/>
-          <div class="txt-wrap">
-            <p class="result-intro">客家人口快問快答你獲得幾分呢？是否有許多答案與我們想的不一樣？看完解答後可以與朋友分享自己得分，並且可以繼續往下，透過《客新聞》製作的地圖來瞭解你所不知道的台灣客家人口數據現況！</p>
-            <div class="score-block"><img src="img/quiz/result-img.png" alt=""/>
-              <div class="score"><span class="num">{{score}}</span><span class="unit">分</span></div>
-            </div>
-          </div>
-          <div class="result-txt">{{resultTxt}}</div>
-        </div>
-      </div>
-      <div class="result-redirect" v-if="hasAnswerDone"><img src="img/quiz/result-arr.png" alt=""/>
-        <div class="btn-go-map">客家人口互動地圖</div>
+        <div class="result-redirect" v-show="hasAnswerDone"><img src="img/quiz/result-arr.png" alt=""/><a class="btn-go-map" href="#map" data-section="charts">客家人口互動地圖</a></div>
       </div>
     </section>
 
-    <div id="map_chart">
+    <!-- Section Charts -->
+    <div class="section-charts" id="map_chart">
       <section id="map">
         <div class="tk-container">
           <div class="big-title">
@@ -258,7 +259,7 @@
         </div>
       </section>
 
-      <section class="sec-a">
+      <section class="sec-a" id="anchor-number">
         <div class="tk-container">
           <div class="big-title">
             <h2>
@@ -434,7 +435,7 @@
     </section>
   </div>
 
-  <footer class="footer">
+  <footer class="footer section-charts">
     <div class="container">
       <div class="row align-items-lg-end justify-content-between">
         <div class="col-12 col-lg-9">
