@@ -44,6 +44,7 @@ var vm = new Vue({
     this.drawPie('族群', [80.2, 19.8]);
     this.drawChart2('縣市');
     this.drawChart3('年齡');
+    this.initSections();
   },
   methods: {
     changeCounty() {
@@ -947,6 +948,9 @@ var vm = new Vue({
           }
         });
       }
+    },
+    initSections() {
+      $('.section-maps').addClass('section-charts')
     }
   },
 })
