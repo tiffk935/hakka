@@ -19,6 +19,11 @@ $(function () {
     }, 500);
     return false;
   });
+  $(window).scroll(function () {
+    if ($(window).width()< 992) return
+    if ($(this).scrollTop() > 1) $('.header').addClass('fixed')
+    else $('.header').removeClass('fixed')
+  });
 });
 
 $(window).on("load", function () {});
