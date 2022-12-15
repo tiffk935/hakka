@@ -73,8 +73,8 @@ var app = new Vue({
         this.addScore()
       } else {
         $('.dialog-wrong').addClass('active')
-        this.explanations = this.questions[this.quizIdx].explain
       }
+      this.explanations = this.questions[this.quizIdx].explain
       setTimeout(() => {
         $('.dialog').removeClass('active')
       }, 1000);
