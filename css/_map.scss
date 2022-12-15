@@ -35,8 +35,8 @@
     }  
 
     .tab {
-      margin: 0 6px 30px 6px;
-      font-size: 20px;
+      margin: 0 6px 10px 6px;
+      font-size: 16px;
       color: #fff;
       background: #414141;
       border-radius: 8px;
@@ -45,6 +45,7 @@
       cursor: pointer;
       @media screen and (min-width:900px) {
         width: 100%;
+        font-size: 20px;
         text-align: center;
         margin: 0 0 30px 0;
       }
@@ -59,12 +60,11 @@
     color: #000;
     font-size: 12px;
     margin: 0 auto;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     max-width: 521px;
-    // @media screen and (min-width:900px) {
-    //   position: absolute;
-    //   top: 407px;
-    // } 
+    @media screen and (min-width:900px) {
+      margin-bottom: 40px;
+    } 
 
     .title {
       color: #fff;
@@ -82,14 +82,10 @@
     max-width: 500px;
     margin: 0 auto;
     position: relative;
-    margin-bottom: 30px;
-    @media screen and (min-width:900px) {
-      margin-bottom: 0;
-    }
 
     .man {
       position: absolute;
-      bottom: 0;
+      bottom: 5%;
       left: 0;
       width: 16%;
       @media screen and (min-width:900px) {
@@ -102,10 +98,12 @@
     .legend {
       position: absolute;
       top: 50%;
-      left: 1%;
+      // left: 1%;
+      right: -3%;
       width: 21%;
       @media screen and (min-width:900px) {
         top: 282px;
+        right: auto;
         left: -193px;
         width: 80px;
       }
@@ -114,11 +112,15 @@
 
   svg {
     width: 100%;
-    // max-width: 500px;
-    // margin: 0 auto;
+    max-width: 290px;
+    margin: 0 auto;
     display: block;
     height: auto;
     background: #f0ce77;
+    @media screen and (min-width:900px) {
+      max-width: none;
+      margin: 0;
+    }
 
     path {
       transition: fill .2s;
@@ -127,8 +129,9 @@
 
   .filter {
     display: flex;
-    padding: 20px;
+    padding: 0 20px;
     margin: 0 -10px;
+    margin-bottom: 10px;
     @media screen and (min-width:900px) {
       display: none;
     }
@@ -159,11 +162,12 @@
       select {
         display: block;
         width: 100%;
-        font-size: 18px;
+        font-size: 16px;
         appearance: none;
         border: none;
         background: none;
         padding: 5px 30px 5px 12px;
+        color: #000;
       }
     }
   }
@@ -197,7 +201,7 @@
     }
 
     h3 {
-      margin: 0 0 5px 0;
+      margin: 0;
       color: #3251BE;
       font-size: 20px;
       padding: 0 15px;
@@ -211,7 +215,8 @@
       td {
         width: 50%;
         text-align: right;
-        padding: 2px 5px;
+        padding: 0 5px;
+        line-height: 1.1;
 
         &.num1, &.num2, &.num3 {
           text-align: left;
@@ -226,6 +231,7 @@
       background: #D9D9D9;
       text-align: center;
       line-height: 27px;
+      margin-top: 10px;
     }
   }
 }
