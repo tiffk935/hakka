@@ -38,6 +38,7 @@ var app = new Vue({
     hasAnswered: false,
     score: 0,
     hasAnswerDone: false,
+    dialogEndDelay: 2000
   },
   computed: {
     currentBgbyQuizIdx() {
@@ -76,7 +77,7 @@ var app = new Vue({
       this.explanations = this.questions[this.quizIdx].explain
       setTimeout(() => {
         $('.dialog').removeClass('active')
-      }, 1000);
+      }, this.dialogEndDelay);
     },
     addScore() {
       this.score += 20
