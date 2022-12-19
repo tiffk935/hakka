@@ -47,7 +47,7 @@ var app = new Vue({
     nextStep() {
       if (this.quizIdx === 4 && this.hasAnswered) return '結算成績'
       else if (!this.hasAnswered) return '確認回答'
-      else return '前往下一題'
+      else return '往下一題'
     },
   },
   created() {

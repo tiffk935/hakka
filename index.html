@@ -94,7 +94,7 @@
             </ul>
             <div class="confirm-block">
               <div class="dialog-wrap"><img class="dialog dialog-correct" src="img/quiz/dialog-correct.png" alt=""/><img class="dialog dialog-wrong" src="img/quiz/dialog-wrong.png" alt=""/>
-                <div class="btn-confirm" @click="answer" :class="{ 'disabled': selectedAnswer === -1 }"><span>{{ nextStep }}</span><img class="arr" src="img/quiz/arr-r.png" alt=""/></div>
+                <div class="btn-confirm" @click="answer" :class="{ 'disabled': selectedAnswer === -1 }"><span>{{ nextStep }}</span></div>
               </div>
               <div class="answer-block"><span class="answer-txt" v-for="(des,idx) in explanations">{{des}}</span>
                 <div class="answer-line d-none d-lg-block"></div>

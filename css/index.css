@@ -799,8 +799,8 @@ select:focus-visible {
 .section-quiz .square .dialog-wrap .dialog {
   position: absolute;
   width: 80px;
-  right: 122px;
-  top: -122%;
+  right: 150px;
+  top: -106%;
   -webkit-transform-origin: right bottom;
   transform-origin: right bottom;
   -webkit-transform: rotate(-55deg);
@@ -829,12 +829,22 @@ select:focus-visible {
   user-select: none;
   border-radius: 5px;
   display: inline-block;
-  padding: 12px 35px 12px 20px;
+  padding: 12px 30px;
   position: relative;
   margin-bottom: 20px;
   cursor: pointer;
-  background-color: #fff;
-  color: #000;
+  background-color: #e13225;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 24px;
 }
 .section-quiz .square .btn-confirm.disabled {
   background-color: rgba(255, 255, 255, 0.6);
@@ -866,13 +876,6 @@ select:focus-visible {
     width: 154px;
     height: 44px;
     padding: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    padding-left: 30px;
   }
 }
 .section-quiz .square .answer-block {
