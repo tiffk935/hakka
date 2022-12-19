@@ -847,7 +847,8 @@ select:focus-visible {
   font-size: 24px;
 }
 .section-quiz .square .btn-confirm.disabled {
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: #fff;
+  color: rgba(227, 9, 9, 0.3);
 }
 .section-quiz .square .btn-confirm.disabled span {
   opacity: 0.6;
