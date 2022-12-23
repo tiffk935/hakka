@@ -378,8 +378,8 @@ body {
 }
 
 .sec-desc {
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 16px;
+  line-height: 26px;
   margin-bottom: 30px;
   position: relative;
   z-index: 1;
@@ -560,7 +560,7 @@ body {
 @media screen and (min-width: 560px) {
   .sec-b .legend .item {
     margin-right: 20px;
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 .sec-b .legend .item .rect {
@@ -639,7 +639,7 @@ body {
   margin: 0 10px;
 }
 .sec-c .edu-tab .tab.active {
-  color: #FFF500;
+  color: rgb(221, 70, 125);
 }
 .sec-c .legend {
   display: flex;
@@ -668,7 +668,7 @@ body {
 @media screen and (min-width: 560px) {
   .sec-c .legend .item {
     margin-right: 20px;
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 .sec-c .legend .item .rect {

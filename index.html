@@ -11,8 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css?1215">
-  <link rel="stylesheet" href="./css/index.css?1215">
+  <link rel="stylesheet" href="css/style.css?1223">
+  <link rel="stylesheet" href="./css/index.css?1223">
   <style>
     .canvas-wrapper60 {
       position: relative; 
@@ -123,7 +123,7 @@
             <h2>
               <img src="img/map-title.svg" alt="台灣客家人口數據地圖">
             </h2>
-            <div class="info">《客新聞》依據客委會的調查報告，將全台灣各個鄉鎮市區推估設籍的客家人口比例、客家人口數轉製成互動地圖，並依照數值高低上色，成為精美面量圖，只要點選行政區域，即可看到該區域的客家人口小檔案。</div>
+            <div class="info">《客新聞》依據客委會調查報告，分別將全台各鄉鎮市區推估的設籍客家人 口數據依照數值高低上色，繪製成數位地圖，瀏覽地圖時可透過一旁按鈕切 換「人口數」與「人口比例」，並可點選行政區域瞭解該區的客家人口小檔 案。</div>
           </div>
 
           <div class="flex">
@@ -263,7 +263,7 @@
         <div class="tk-container">
           <div class="big-title">
             <h2>
-              <img src="img/chart-title.svg" alt="數字看客家">
+              <img src="img/chart-title.svg" alt="你所不知道的客家!">
             </h2>
             <div class="info">進一步分析全國466.9萬客家人口的性別比、居住地、年齡分布、腔調與客語聽說能力，可以勾勒出台灣客家族群人口數、分布、語言能力與認同情形。</div>
           </div>
@@ -277,8 +277,8 @@
                 <img class="man" src="img/chart-man.png" alt="">
               </div>
               <div class="text" v-if="chart1Tab == '族群'">調查結果顯示，全國約有466.9萬人符合《客家基本法》的客家人定義，約占台灣2,356.1萬人口的19.8%。</div>
-              <div class="text" v-if="chart1Tab == '居住地'">調查報告推估，客家人口呈現男性略多於女性的情形，與國內目前女性（50.3%）略多於男性（49.7%）的比例略有差異。</div>
-              <div class="text" v-if="chart1Tab == '性別'">全國466.9萬客家人之中，超過一半的客家人並沒有住在客庄。</div>
+              <div class="text" v-if="chart1Tab == '居住地'">全國466.9萬客家人之中，超過一半的客家人並沒有住在客庄。</div>
+              <div class="text" v-if="chart1Tab == '性別'">調查報告推估，客家人口呈現男性略多於女性的情形，與國內目前女性（50.3%）略多於男性（49.7%）的比例略有差異。</div>
               <div class="tabs">
                 <div :class="{tab: true, active: chart1Tab == '族群'}" @click="drawPie('族群', [80.2, 19.8])">族群</div>
                 <div :class="{tab: true, active: chart1Tab == '居住地'}" @click="drawPie('居住地', [53.7, 46.3])">居住地</div>
@@ -299,7 +299,7 @@
               <div class="sec-title">
                 <img src="img/title-a.svg" alt="">
                 <div>
-                  <span>B</span>數字看客家
+                  <span>B</span>客家人口小知識
                 </div>
                 <img class="man" src="img/chart-man.png" alt="">
               </div>
@@ -342,7 +342,7 @@
               <div class="sec-title">
                 <img src="img/title-a.svg" alt="">
                 <div>
-                  <span>C</span>客家人講客嗎？
+                  <span>C</span>客家人講客嗎?
                 </div>
                 <img class="man" src="img/chart-man.png" alt="">
               </div>
@@ -458,8 +458,8 @@
   <script src="https://d3js.org/d3.v6.js"></script>
   <script src="https://unpkg.com/topojson@3"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="js/data.js?1215"></script>
-  <script src="./js/all.js?1215"></script>
-  <script src="js/map_chart.js?1215"></script>
+  <script src="js/data.js?1223"></script>
+  <script src="./js/all.js?1223"></script>
+  <script src="js/map_chart.js?1223"></script>
 </body>
 </html>

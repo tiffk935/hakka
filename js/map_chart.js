@@ -292,7 +292,7 @@ var vm = new Vue({
               label: '',
               data: BAR1.map(row => row['人口數']),
               // backgroundColor: '#22b7c9',
-              backgroundColor: ['#2c345c', '#dd467d', '#2c345c', '#2c345c', '#dd467d', '#2c345c', '#dd467d', '#dd467d', '#dd467d', '#dd467d', '#dd467d', '#dd467d', '#dd467d', '#dd467d', '#dd467d', '#dd467d', '#dd467d', '#dd467d', '#dd467d', '#dd467d'], 
+              backgroundColor: ['#2c345c', '#2c345c', '#2c345c', '#2c345c', '#dd467d', '#2c345c', '#dd467d', '#dd467d', '#dd467d', '#dd467d', '#dd467d', '#dd467d', '#dd467d', '#dd467d', '#dd467d', '#dd467d', '#dd467d', '#dd467d', '#dd467d', '#dd467d'], 
             }]
           },
           options: {
@@ -422,7 +422,7 @@ var vm = new Vue({
                   // // }
                   font: function(context) {
                     var width = context.chart.width;
-                    var size = Math.round(width / 39);
+                    var size = Math.round(width / 35);
                     return {
                       size: size,
                       lineHeight: 1.1
@@ -506,7 +506,7 @@ var vm = new Vue({
                   // // }
                   font: function(context) {
                     var width = context.chart.width;
-                    var size = Math.round(width / 39);
+                    var size = Math.round(width / 35);
                     return {
                       size: size,
                       lineHeight: 1.1
@@ -600,7 +600,7 @@ var vm = new Vue({
                   // // }
                   font: function(context) {
                     var width = context.chart.width;
-                    var size = Math.round(width / 39);
+                    var size = Math.round(width / 35);
                     return {
                       size: size,
                       lineHeight: 1.1
