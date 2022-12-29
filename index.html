@@ -87,10 +87,22 @@
               <p class="quiz-txt">{{questions[quizIdx]?.text}}</p>
             </div>
             <ul class="quiz-options">
-              <li class="quiz-option" @click="selectOption(0)" :class="{'selected-option': selectedAnswer === 0}">{{questions[quizIdx]?.options[0]}}</li>
-              <li class="quiz-option" @click="selectOption(1)" :class="{'selected-option': selectedAnswer === 1}">{{questions[quizIdx]?.options[1]}}</li>
-              <li class="quiz-option" @click="selectOption(2)" :class="{'selected-option': selectedAnswer === 2}">{{questions[quizIdx]?.options[2]}}</li>
-              <li class="quiz-option" @click="selectOption(3)" :class="{'selected-option': selectedAnswer === 3}">{{questions[quizIdx]?.options[3]}}</li>
+              <li class="quiz-option" @click="selectOption(0)" :class="{'selected-option': selectedAnswer === 0}">
+                <p class="location" v-if="questions[quizIdx] &amp;&amp; questions[quizIdx].location">{{questions[quizIdx]?.location[0]}}</p>
+                <p>{{questions[quizIdx]?.options[0]}} </p>
+              </li>
+              <li class="quiz-option" @click="selectOption(1)" :class="{'selected-option': selectedAnswer === 1}">
+                <p class="location" v-if="questions[quizIdx] &amp;&amp; questions[quizIdx].location">{{questions[quizIdx]?.location[1]}}</p>
+                <p>{{questions[quizIdx]?.options[1]}}</p>
+              </li>
+              <li class="quiz-option" @click="selectOption(2)" :class="{'selected-option': selectedAnswer === 2}">
+                <p class="location" v-if="questions[quizIdx] &amp;&amp; questions[quizIdx].location">{{questions[quizIdx]?.location[2]}}</p>
+                <p>{{questions[quizIdx]?.options[2]}}</p>
+              </li>
+              <li class="quiz-option" @click="selectOption(3)" :class="{'selected-option': selectedAnswer === 3}">
+                <p class="location" v-if="questions[quizIdx] &amp;&amp; questions[quizIdx].location">{{questions[quizIdx]?.location[3]}}</p>
+                <p>{{questions[quizIdx]?.options[3]}}</p>
+              </li>
             </ul>
             <div class="confirm-block">
               <div class="dialog-wrap"><img class="dialog dialog-correct" src="img/quiz/dialog-correct.png" alt=""/><img class="dialog dialog-wrong" src="img/quiz/dialog-wrong.png" alt=""/>
@@ -385,6 +397,7 @@
     <section class="section-news section-charts" id="anchor-news">
       <div class="news-boxes container">
         <div class="row">
+          <div class="col-12"><img class="section-title" src="img/news/title.png" alt="相關新聞"/></div>
           <div class="col-12 col-lg-4"><a class="news-box" href="#" target="_blank">
               <div class="img-box" style="background-image:url(img/news/1.jpg)"></div>
               <div class="title">平名戰士／到底是神是鬼？義民信仰５大ＱＡ報你知！</div>
