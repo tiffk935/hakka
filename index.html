@@ -124,7 +124,7 @@
                 <div class="score"><span class="num">{{score}}</span><span class="unit">分</span></div>
               </div>
             </div>
-            <div class="result-txt"><img :src="`img/quiz/${score}.png`" alt=""/></div>
+            <div class="result-txt"><img :src="`img/quiz/${score}.png`" alt=""/></div><a class="share-result" href="javascript:;"> <img src="img/quiz/share.png" alt=""/></a>
           </div>
         </div>
         <div class="result-redirect" v-show="hasAnswerDone"><img src="img/quiz/result-arr.png" alt=""/><a class="btn-go-map" href="#map" data-section="charts">客家人口互動地圖</a></div>
