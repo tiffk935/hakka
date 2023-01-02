@@ -326,7 +326,12 @@ select:focus-visible {
 }
 @media (min-width: 900px) {
   .header {
-    padding: 15px;
+    padding: 15px 0;
+  }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  .header .container {
+    max-width: 100%;
   }
 }
 .header .header-m {
@@ -399,7 +404,7 @@ select:focus-visible {
   }
 }
 .header .header-d .logo {
-  width: 161px;
+  width: 54px;
 }
 .header .header-d .headerList {
   display: -webkit-box;
@@ -433,6 +438,33 @@ select:focus-visible {
 .header .header-d .headerList li:last-of-type {
   border-width: 0 2px;
 }
+.header .header-d .social-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.header .header-d .social-links li {
+  margin: 0 10px;
+}
+.header .header-d .social-links a {
+  display: block;
+}
+.header .header-d .social-links .header-share {
+  cursor: pointer;
+  width: 46px;
+}
+.header .header-d .social-links .hakka-news-link {
+  width: 61px;
+}
+.header .header-d .social-links .hpcf-link {
+  width: 244px;
+}
 .ham-content {
   background-color: #453479;
   padding: 0 36px;
@@ -445,7 +477,7 @@ select:focus-visible {
   z-index: 1000;
 }
 .ham-content .logo {
-  width: 100px;
+  width: 50px;
   padding-top: 20px;
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
