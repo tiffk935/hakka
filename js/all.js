@@ -96,6 +96,7 @@ var app = new Vue({
     },
     endQuiz() {
       this.hasAnswerDone = true
+      window.history.pushState('', '', `?score=${this.score}`);
     }
   },
 });
