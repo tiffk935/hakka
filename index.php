@@ -1,11 +1,22 @@
-<!DOCTYPE html>
+<?php
+ob_start();
+$ogImg = 'meta.jpg';
+if(!empty($_GET['score']) || $_GET['score'] === '0'){
+  if($_GET['score'] == '100') $ogImg = 'meta100.jpg';
+  else if($_GET['score'] == '80') $ogImg = 'meta80.jpg';
+  else if($_GET['score'] == '60') $ogImg = 'meta60.jpg';
+  else if($_GET['score'] == '40') $ogImg = 'meta40.jpg';
+  else if($_GET['score'] == '20') $ogImg = 'meta20.jpg';
+  else if($_GET['score'] == '0') $ogImg = 'meta0.jpg';
+}
+?><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="客家委員會公布「全國客家人口暨語言基礎資料調查研究報告」，以近1年的時間訪問63,111位民眾，並依據《客家基本法》的客家人定義——「具有客家血緣或客家淵源，且自我認同為客家人」推估，全台灣約有466.9萬的客家人，佔全國2356.12萬人口的19.82%。">
-  <meta property="og:image" content="meta.jpg">
+  <meta property="og:image" content="<?=$ogImg?>">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <script src="./js/jquery-3.6.0.min.js"> </script>
@@ -17,6 +28,12 @@
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css?1223">
   <link rel="stylesheet" href="./css/index.css?1223">
+  <?php 
+    if(!empty($_GET['score'])) {
+      header('Location: ' . strtok($_SERVER["REQUEST_URI"], '?')); 
+      ob_end_flush();
+    }
+  ?>
   <style>
     .canvas-wrapper60 {
       position: relative; 
@@ -129,7 +146,7 @@
                 <div class="score"><span class="num">{{score}}</span><span class="unit">分</span></div>
               </div>
             </div>
-            <div class="result-txt"><img :src="`img/quiz/${score}.png`" alt=""/></div><a class="share-result" href="javascript:;"> <img src="img/quiz/share.png" alt=""/></a>
+            <div class="result-txt"><img :src="`img/quiz/${score}.png`" alt=""/></div><div class="share-result" onclick="window.open('https:\/\/www.facebook.com\/sharer\/sharer.php?u=' + window.location, '', 'width = 500, height = 500')" style="cursor: pointer;"> <img src="img/quiz/share.png" alt=""/></div>
           </div>
         </div>
         <div class="result-redirect" v-show="hasAnswerDone"><img src="img/quiz/result-arr.png" alt=""/><a class="btn-go-map" href="#map" data-section="charts">客家人口互動地圖</a></div>
