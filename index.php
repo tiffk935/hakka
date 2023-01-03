@@ -1,5 +1,4 @@
 <?php
-ob_start();
 $ogImg = 'meta.jpg';
 if(!empty($_GET['score']) || $_GET['score'] === '0'){
   if($_GET['score'] == '100') $ogImg = 'meta100.jpg';
@@ -16,7 +15,7 @@ if(!empty($_GET['score']) || $_GET['score'] === '0'){
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="客家委員會公布「全國客家人口暨語言基礎資料調查研究報告」，以近1年的時間訪問63,111位民眾，並依據《客家基本法》的客家人定義——「具有客家血緣或客家淵源，且自我認同為客家人」推估，全台灣約有466.9萬的客家人，佔全國2356.12萬人口的19.82%。">
-  <meta property="og:image" content="<?=$ogImg?>">
+  <meta property="og:image" content="<?= $ogImg ?>">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <script src="./js/jquery-3.6.0.min.js"> </script>
@@ -28,12 +27,6 @@ if(!empty($_GET['score']) || $_GET['score'] === '0'){
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css?1223">
   <link rel="stylesheet" href="./css/index.css?1223">
-  <?php 
-    if(!empty($_GET['score'])) {
-      header('Location: ' . strtok($_SERVER["REQUEST_URI"], '?')); 
-      ob_end_flush();
-    }
-  ?>
   <style>
     .canvas-wrapper60 {
       position: relative; 
