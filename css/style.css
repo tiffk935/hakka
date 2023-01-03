@@ -52,7 +52,7 @@ body {
 }
 
 #map {
-  color: #454545;
+  color: #000;
   background: #f0ce77;
   padding: 50px 0;
   overflow: hidden;
@@ -402,7 +402,7 @@ body {
 
 .sec-a {
   background: #a3d386;
-  color: #454545;
+  color: #000;
   padding: 50px 0;
 }
 @media screen and (min-width: 900px) {
@@ -435,7 +435,7 @@ body {
 
 .sec-b {
   background: #c2e5ad;
-  color: #454545;
+  color: #000;
   padding: 70px 0 40px 0;
 }
 @media screen and (min-width: 900px) {
@@ -578,7 +578,7 @@ body {
 
 .sec-c {
   background: #a3d386;
-  color: #454545;
+  color: #000;
   padding: 70px 0 40px 0;
 }
 @media screen and (min-width: 900px) {
