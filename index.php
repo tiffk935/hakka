@@ -160,8 +160,8 @@ if(!empty($_GET['score']) || $_GET['score'] === '0'){
           <div class="flex">
             <div>
               <div class="tabs">
-                <div :class="{tab: true, active: mapTab == 'map1'}" @click="updateMap('map1')">依人口數</div>
-                <div :class="{tab: true, active: mapTab == 'map2'}" @click="updateMap('map2')">依人口比例</div>
+                <div :class="{tab: true, active: mapTab == 'map1'}" @click="updateMap('map1')" style="background: #80A855;">依人口數</div>
+                <div :class="{tab: true, active: mapTab == 'map2'}" @click="updateMap('map2')" style="background: #B17B9F;">依人口比例</div>
               </div>
       
               <div class="note">
